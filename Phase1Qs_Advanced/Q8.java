@@ -11,10 +11,10 @@ Author :
 
 /*
     BATCH 1 Question on 10/02/2025
-    There is a cricket game scenario. Construct a enum Shot with fields as One, Two, Four, Six, out. 
-    There is a cricketPlayer class which implements a interface with three methods ( run, appeal, umpiredecision). 
+    There is a cricket game scenario. Construct a enum Shot with fields as One, Two, Four, Six, Out. 
+    There is a cricketPlayer class which implements a interface with three methods (run, appeal, umpireDecision). 
     If a player isnt out ( OUT from enum -> pass 0 ), add scores of that player. 
-    If he is out now display the total runs he made and print OUT but the baller can take a appeal and check if he is out so asks umpire to check ( basic check if boolean isOut = true ). 
+    If he is out now display the total runs he made and print OUT but the baller can take a appeal to check if he is OUT , so asks umpire to check ( basic check if boolean isOut = true ). 
     so Three threads needed to be operated. All in a menu driven...
 */
 
@@ -51,7 +51,7 @@ class CricketPlayer implements CricketActions {
 
 
     @Override
-    public void run(Shot shot) {
+    public synchronized void run(Shot shot) {
         if(shot == Shot.OUT) {
             isOut = true;
             System.out.println("Player is OUT!");
@@ -62,12 +62,12 @@ class CricketPlayer implements CricketActions {
     }
 
     @Override
-    public void appeal() {
+    public synchronized void appeal() {
         System.out.println("Bowler appeals for OUT!");
     }
 
     @Override
-    public void umpireDecision() {
+    public synchronized void umpireDecision() {
         if(isOut) {
             System.out.println("Umpire Decision: OUT");
             System.out.println("Total Runs Scored by " + name + " is: " + totalRuns);
