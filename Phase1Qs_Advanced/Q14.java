@@ -1,7 +1,21 @@
+/*
+Author :
+
+███████╗████████╗ █████╗ ██████╗  ███╗   ███╗ █████╗ ███╗   ██╗
+██╔════╝╚══██╔══╝██╔══██╗██╔══██╗ ████╗ ████║██╔══██╗████╗  ██║
+███████╗   ██║   ███████║██████╔╝ ██╔████╔██║███████║██╔██╗ ██║
+╚════██║   ██║   ██╔══██║██║  ██║ ██║╚██╔╝██║██╔══██║██║╚██╗██║
+███████║   ██║   ██║  ██║██║  ██║ ██║ ╚═╝ ██║██║  ██║██║ ╚████║
+╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  STARMAN248
+*/
+
+/*
+    No Proper Question provided by the Contributor :(
+*/
+
 import java.util.*;
 import java.io.*;
 
-//!ENUM
 enum ResourceType{
     CPU(50),
     GPU(100),
@@ -19,14 +33,12 @@ enum ResourceType{
     }
 }
 
-//!Interface
 interface ResourceOperations{
     void allocate(ResourceType type);
     void release(ResourceType type);
     void logStatus();
 }
 
-//!Abstract class
 abstract class SystemResource{
     String systemName;
     int maxCapacity;
@@ -43,7 +55,6 @@ abstract class SystemResource{
     abstract void checkOverload();
 }
 
-//! Derived class
 class ResourceManager extends SystemResource implements ResourceOperations{
     int cpuCount = 0;
     int gpuCount = 0;
@@ -137,7 +148,6 @@ class ResourceManager extends SystemResource implements ResourceOperations{
     }
 }
 
-//! Threading
 class Client implements Runnable{
     ResourceManager RM;
     ResourceType type;
