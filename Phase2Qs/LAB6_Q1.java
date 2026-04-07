@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class HotelRAF {
+public class LAB6_Q1 {
 
     static final int NAME_LENGTH = 20; 
     static final int RECORD_SIZE = 4 + (2 * NAME_LENGTH) + 8 + 1; 
