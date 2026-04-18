@@ -29,8 +29,6 @@ import javafx.scene.layout.*;
 
 import javafx.collections.*;
 import java.util.*;
-import javax.swing.table.TableColumn;
-import javax.swing.text.TableView;
 
 class Pair<T, U> {
     private T first;

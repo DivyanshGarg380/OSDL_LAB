@@ -65,8 +65,7 @@ class Pair<T, U> {
 }
 
 public class Q5 extends Application {
-
-    static class Appointment {  
+    public static class Appointment {  
         private Integer patientId;
         private String patientName;
         private String doctorName;
@@ -88,7 +87,7 @@ public class Q5 extends Application {
         public String getTime() { return time; }
     }
     
-    ArrayList<Appointment> list = new ArrayList<>();
+    ObservableList<Appointment> list = FXCollections.observableArrayList();
     HashMap<Integer, Appointment> map = new HashMap<>();
 
     @Override
@@ -125,6 +124,7 @@ public class Q5 extends Application {
         c5.setCellValueFactory(new PropertyValueFactory<>("time"));
 
         table.getColumns().addAll(c1, c2, c3, c4, c5);
+        table.setItems(list);
 
         add.setOnAction(e -> {
             try {
